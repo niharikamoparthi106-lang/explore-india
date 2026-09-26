@@ -1,0 +1,2092 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore India</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        background: linear-gradient(rgba(240,248,255,0.72), rgba(240,248,255,0.72)),
+            url("https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=2000&q=80");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+          
+            text-align: center;
+            margin: 0;
+            color: #333;
+            transition: 0.5s;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            background-color: #003366;
+            padding: 18px;
+            box-shadow: 0 2px 8px gray;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        #darkModeBtn {
+            background: linear-gradient(45deg, #222, #555);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        #darkModeBtn:hover {
+            background: white;
+            color: #121212;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background-image: url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da");
+            background-size: cover;
+            background-position: center;
+            padding: 70px 20px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 50px;
+            text-shadow: 2px 2px 5px black;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .hero p {
+            font-size: 22px;
+            text-shadow: 1px 1px 3px black;
+            animation: fadeIn 3s ease-in;
+        }
+
+        /* ================= HEADINGS ================= */
+
+        h1 {
+            color: darkblue;
+            font-size: 40px;
+        }
+
+        h2 {
+            color: #006666;
+            font-size: 30px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px lightgray;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff6600;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px gray;
+        }
+        .hero button {
+    animation: pulseButton 2s infinite;
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            margin: 20px;
+        }
+
+        .search-box input {
+            width: 300px;
+            padding: 14px;
+            border-radius: 25px;
+            border: 2px solid #003366;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .search-box input:focus {
+            border-color: #ff6600;
+            box-shadow: 0 0 10px gray;
+        }
+        .filter-buttons {
+    margin: 20px;
+}
+
+.filter-buttons button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-buttons button:hover {
+    background-color: #ffcc00;
+    color: #003366;
+    transform: scale(1.05);
+}
+.filter-buttons button.active {
+    background-color: #ffcc00;
+    color: #003366;
+    transform: scale(1.05);
+}
+        /* ================= DESTINATION CARDS ================= */
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 25px auto;
+            padding: 10px;
+        }
+
+        .card {
+            background-color: white;
+            width: 250px;
+            min-height: 520px;
+            padding: 15px;
+            border-radius: 18px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.30);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: darkblue;
+            font-size: 21px;
+            margin: 8px 0;
+            text-shadow: 1px 1px 3px lightgray;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        .card button {
+            margin: 5px 3px;
+            padding: 10px 14px;
+            font-size: 14px;
+        }
+
+        .rating {
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        .rating p {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .rating span {
+            font-size: 24px;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .rating span:hover {
+            transform: scale(1.3);
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 25px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px gray;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 10px 25px gray;
+        }
+
+        /* ================= FAVORITES ================= */
+
+        #favorites {
+            margin: 40px 20px;
+        }
+
+        #favoriteList {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        #favoriteList p {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px gray;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        #favoriteList p:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px gray;
+        }
+
+        /* ================= WEATHER ================= */
+
+        .weather-box {
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+            transition: 0.3s;
+        }
+
+        .weather-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px gray;
+        }
+
+        .weather-box h3 {
+            color: #003366;
+            font-size: 25px;
+        }
+
+        .weather-box p {
+            font-size: 18px;
+            margin: 15px;
+        }
+
+        .weather-box button {
+            margin: 8px;
+        }
+input,
+        textarea,
+        select {
+            width: 280px;
+            padding: 12px;
+            border: 1px solid gray;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #006666;
+            outline: none;
+        }
+
+        /* ================= FAQ ================= */
+
+        .faq-box {
+            width: 80%;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+            text-align: left;
+        }
+
+        .faq-box h3 {
+            color: #003366;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .faq-box p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* ================= STATISTICS ================= */
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 25px auto;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            width: 180px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-box h3 {
+            color: #003366;
+            font-size: 25px;
+        }
+
+        .stat-box p {
+            font-size: 18px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-box {
+            width: 80%;
+            max-width: 700px;
+            margin: 20px auto 40px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+        }
+
+        .about-box p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+/* TRAVEL TIPS CARDS */
+#tips .card {
+    min-height: 180px;
+    height: auto;
+}
+        /* ================= TOP BUTTON ================= */
+
+        #topBtn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #ff6600;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 22px;
+            z-index: 1000;
+        }
+
+        /* ================= POPUP ================= */
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .popup-content {
+            background: white;
+            width: 60%;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* ================= DARK MODE ================= */
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        body.dark-mode nav {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2 {
+            color: white;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .booking,
+        body.dark-mode .contact,
+        body.dark-mode .weather-box,
+        body.dark-mode .faq-box,
+        body.dark-mode .stat-box,
+        body.dark-mode .about-box,
+        body.dark-mode #favoriteList p,
+        body.dark-mode .popup-content {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        body.dark-mode .card h3,
+        body.dark-mode .weather-box h3,
+        body.dark-mode .faq-box h3,
+        body.dark-mode .stat-box h3 {
+            color: #66ffff;
+        }
+
+        body.dark-mode input,
+        body.dark-mode textarea,
+        body.dark-mode select {
+            background-color: #2b2b2b;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= PROFESSIONAL SECTION LAYOUT ================= */
+
+        .booking {
+            width: 500px;
+            max-width: calc(100% - 40px);
+            margin: 40px auto;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px gray;
+        }
+
+        .booking h2,
+        .contact h2 {
+            color: #003366;
+        }
+
+        .contact {
+            width: 500px;
+            max-width: calc(100% - 40px);
+            margin: 40px auto;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px gray;
+        }
+
+        #stats {
+            display: block;
+            width: 100%;
+            margin: 40px auto;
+            clear: both;
+        }
+
+        #about {
+            display: block;
+            width: 100%;
+            margin: 40px auto 0;
+            clear: both;
+        }
+
+        #about .about-box {
+            width: 100%;
+            max-width: none;
+            margin: 20px 0 0;
+            padding: 30px 6%;
+            box-sizing: border-box;
+            border-radius: 0;
+            box-shadow: 0 4px 12px gray;
+        }
+
+        footer {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0;
+        }
+        <button class="share-btn" onclick="shareWebsite()">
+    🔗 Share Explore India
+</button>
+
+       #favorites,
+#weather,
+#tips,
+#faq,
+#gallery {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+        .booking form,
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .booking form br,
+        .contact form br {
+            display: none;
+        }
+
+        .booking input,
+        .booking select,
+        .contact input,
+        .contact textarea {
+            width: 280px;
+            max-width: 100%;
+        }
+
+        footer h3 {
+            margin: 5px 0 12px;
+            font-size: 24px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            #darkModeBtn {
+                margin-top: 10px;
+            }
+
+            .search-box input {
+                width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+                max-width: 350px;
+                min-height: auto;
+            }
+
+            .card img {
+                height: 200px;
+            }
+
+            .gallery img {
+                width: 90%;
+            }
+
+            .weather-box,
+            .faq-box {
+                width: 85%;
+            }
+
+            .booking,
+            .contact {
+                width: 90%;
+                max-width: 500px;
+            }
+
+            #about .about-box {
+                padding: 25px 20px;
+            }
+        }
+/* ================= PROFESSIONAL NAVIGATION ================= */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: #ffcc00;
+    color: #003366;
+}
+
+#darkModeBtn {
+    margin-left: 8px;
+}
+/* 🚂 TRAIN JOURNEY ANIMATION */
+
+.train-animation {
+    position: fixed;
+    bottom: 15px;
+    left: -100px;
+    font-size: 45px;
+    z-index: 999;
+    animation: trainMove 15s linear infinite;
+    pointer-events: none;
+}
+/* ================= MOVING TRAIN ================= */
+
+.moving-train {
+    position: fixed;
+    bottom: 25px;
+    left: -250px;
+    font-size: 130px;
+    z-index: 999;
+    animation: trainMove 12s linear infinite;
+    pointer-events: none;
+}
+/* ================= TRAVEL VIDEO BACKGROUND ================= */
+
+.travel-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Light layer so website text is clearly visible */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 248, 255, 0.50);
+    z-index: -1;
+    pointer-events: none;
+}
+/* ===== COMPACT SPACING ONLY ===== */
+
+.hero {
+    margin-bottom: 15px;
+}
+
+.search-box,
+.filter-buttons {
+    margin: 10px;
+}
+
+.cards-container {
+    gap: 18px;
+    margin: 15px auto;
+    padding: 5px;
+}
+
+.gallery {
+    gap: 15px;
+    margin: 15px;
+}
+
+#favorites,
+#weather,
+#tips,
+#faq,
+#gallery {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.booking,
+.contact {
+    margin: 20px auto;
+}
+
+#stats {
+    margin: 20px auto;
+}
+
+#about {
+    margin: 20px auto 0;
+}
+ /* ===== PROFESSIONAL TOP BUTTON ===== */
+
+#topBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00b894, #00a86b);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+#topBtn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+.site-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+.share-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2196f3;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+    </style>
+</head>
+
+<body>
+<video class="travel-video" autoplay muted loop playsinline>
+    <source src="WhatsApp Video 2026-09-22 at 10.52.16 PM.mp4" type="video/mp4">
+</video>
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <img src="explore-india-logo.png" class="site-logo">
+    <a href="#home">🏠 Home</a>
+    <a href="#destinations">📍 Destinations</a>
+    <a href="#gallery">🖼️ Gallery</a>
+    <a href="#booking">✈️ Booking</a>
+    <a href="#contact">📞 Contact</a>
+    <a href="#tips">💡 Tips</a>
+
+    <button id="darkModeBtn" onclick="darkMode()">
+        🌙 Dark Mode
+    </button>
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <h1>🌍 Explore India</h1>
+
+    <p>
+        Discover amazing places, beautiful views and unforgettable journeys.
+    </p>
+
+    <button onclick="startJourney()">
+        Plan Your Trip ✈️
+    </button>
+
+</section>
+
+<!-- ================= DESTINATIONS ================= -->
+
+<h2 id="destinations">📍 Popular Destinations</h2>
+
+<div class="search-box">
+    <input
+        type="text"
+        id="searchDestination"
+        placeholder="🔍 Search destination..."
+        onkeyup="searchDestination()">
+</div>
+<div class="filter-buttons">
+    <button onclick="filterDestinations('all')">🌍 All</button>
+    <button onclick="filterDestinations('hills')">🏔️ Hills</button>
+    <button onclick="filterDestinations('beaches')">🏖️ Beaches</button>
+    <button onclick="filterDestinations('historical')">🏰 Historical</button>
+    <button onclick="filterDestinations('nature')">🌿 Nature</button>
+</div>
+
+<p id="noResult" style="display:none; color:red; font-size:20px;">
+    ❌ No Destination Found
+</p>
+
+<div class="cards-container">
+
+    <!-- ARaku -->
+    <div class="card destination-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1717585163315-02e3f0a96584?auto=format&fit=crop&fm=jpg&q=80&w=800"
+            alt="Araku Valley">
+
+        <h3>🏔️ Araku Valley</h3>
+
+        <p>
+            Beautiful hills, waterfalls and green valleys.
+        </p>
+
+        <button onclick="explore('Araku Valley')">
+            Explore
+        </button>
+
+        <button onclick="addFavorite('Araku Valley')">
+            ❤️ Favorite
+        </button>
+
+        <button onclick="showDetails('Araku Valley')">
+            🌟 View Details
+        </button>
+
+        <div class="rating">
+            <p>Rate this place:</p>
+
+            <span onclick="ratePlace('Araku Valley',1,this)">⭐</span>
+            <span onclick="ratePlace('Araku Valley',2,this)">⭐</span>
+            <span onclick="ratePlace('Araku Valley',3,this)">⭐</span>
+            <span onclick="ratePlace('Araku Valley',4,this)">⭐</span>
+            <span onclick="ratePlace('Araku Valley',5,this)">⭐</span>
+        </div>
+
+    </div>
+
+    <!-- GOA -->
+    <div class="card destination-card">
+
+        <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+            alt="Goa Beach">
+
+        <h3>🏖️ Goa</h3>
+
+        <p>
+            Enjoy beautiful beaches, sunsets and fun activities.
+        </p>
+
+        <button onclick="explore('Goa')">
+            Explore
+        </button>
+
+        <button onclick="addFavorite('Goa')">
+            ❤️ Favorite
+        </button>
+
+        <button onclick="showDetails('Goa')">
+            🌟 View Details
+        </button>
+
+        <div class="rating">
+            <p>Rate this place:</p>
+
+            <span onclick="ratePlace('Goa',1,this)">⭐</span>
+            <span onclick="ratePlace('Goa',2,this)">⭐</span>
+            <span onclick="ratePlace('Goa',3,this)">⭐</span>
+            <span onclick="ratePlace('Goa',4,this)">⭐</span>
+            <span onclick="ratePlace('Goa',5,this)">⭐</span>
+        </div>
+
+    </div>
+
+    <!-- HYDERABAD -->
+    <div class="card destination-card">
+
+        <img
+            src="https://cdn.pixabay.com/photo/2019/02/12/14/53/golconda-fort-3992421_1280.jpg"
+            alt="Golconda Fort Hyderabad">
+
+        <h3>🏰 Hyderabad</h3>
+
+        <p>
+            Explore Golconda Fort, delicious food and historical places.
+        </p>
+
+        <button onclick="explore('Hyderabad')">
+            Explore
+        </button>
+
+        <button onclick="addFavorite('Hyderabad')">
+            ❤️ Favorite
+        </button>
+
+        <button onclick="showDetails('Hyderabad')">
+            🌟 View Details
+        </button>
+
+        <div class="rating">
+            <p>Rate this place:</p>
+
+            <span onclick="ratePlace('Hyderabad',1,this)">⭐</span>
+            <span onclick="ratePlace('Hyderabad',2,this)">⭐</span>
+            <span onclick="ratePlace('Hyderabad',3,this)">⭐</span>
+            <span onclick="ratePlace('Hyderabad',4,this)">⭐</span>
+            <span onclick="ratePlace('Hyderabad',5,this)">⭐</span>
+        </div>
+
+    </div>
+
+    <!-- MACHERLA -->
+    <div class="card destination-card">
+
+     <img src="https://assets.thehansindia.com/h-upload/2020/08/08/989459-nagarjuna-dam.jpg" alt="Nagarjuna Sagar Dam - Macherla">
+
+        <h3>🌿 Macherla</h3>
+
+        <p>
+            Explore beautiful nature, peaceful surroundings and famous places.
+        </p>
+
+        <button onclick="explore('Macherla')">
+            Explore
+        </button>
+
+        <button onclick="addFavorite('Macherla')">
+            ❤️ Favorite
+        </button>
+
+        <button onclick="showDetails('Macherla')">
+            🌟 View Details
+        </button>
+
+        <div class="rating">
+            <p>Rate this place:</p>
+
+            <span onclick="ratePlace('Macherla',1,this)">⭐</span>
+            <span onclick="ratePlace('Macherla',2,this)">⭐</span>
+            <span onclick="ratePlace('Macherla',3,this)">⭐</span>
+            <span onclick="ratePlace('Macherla',4,this)">⭐</span>
+            <span onclick="ratePlace('Macherla',5,this)">⭐</span>
+        </div>
+
+    </div>
+
+   <div class="card destination-card">
+    <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=800&q=80" alt="Kerala">
+
+    <h3>🌴 Kerala</h3>
+
+    <p>Beautiful backwaters, green hills, beaches and peaceful nature.</p>
+
+    <button onclick="explore('Kerala')">Explore</button>
+    <button onclick="addFavorite('Kerala')">❤️ Favorite</button>
+    <button onclick="showDetails('Kerala')">View Details</button>
+
+    <div class="rating">
+        <p>Rate this place:</p>
+        <span onclick="ratePlace('Kerala',1,this)">⭐</span>
+        <span onclick="ratePlace('Kerala',2,this)">⭐</span>
+        <span onclick="ratePlace('Kerala',3,this)">⭐</span>
+        <span onclick="ratePlace('Kerala',4,this)">⭐</span>
+        <span onclick="ratePlace('Kerala',5,this)">⭐</span>
+    </div>
+</div>
+
+<!-- ================= FAVORITES ================= -->
+
+<section id="favorites">
+
+    <h2>❤️ My Favorites</h2>
+
+    <div id="favoriteList">
+        <p>No favorites added yet.</p>
+    </div>
+
+</section>
+
+<!-- ================= WEATHER ================= -->
+
+<section id="weather">
+
+    <h2>🌤️ Weather Information</h2>
+
+    <div class="weather-box">
+
+        <h3 id="weatherPlace">
+            Select a Destination
+        </h3>
+
+        <p id="weatherText">
+            Choose a place to see weather information.
+        </p>
+
+        <button onclick="showWeather('Araku Valley')">
+            🌄 Araku Weather
+        </button>
+
+        <button onclick="showWeather('Goa')">
+            🏖️ Goa Weather
+        </button>
+
+        <button onclick="showWeather('Hyderabad')">
+            🏰 Hyderabad Weather
+        </button>
+
+        <button onclick="showWeather('Kerala')">
+            🌴 Kerala Weather
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= TRAVEL TIPS ================= -->
+
+<section id="tips">
+
+    <h2>💡 Travel Tips</h2>
+
+    <div class="cards-container">
+
+        <div class="card">
+            <h3>🎒 Pack Smart</h3>
+            <p>
+                Carry comfortable clothes, shoes and important items.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📱 Stay Connected</h3>
+            <p>
+                Keep your phone charged and save important travel numbers.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💧 Stay Hydrated</h3>
+            <p>
+                Carry a water bottle and drink enough water during your journey.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📸 Capture Memories</h3>
+            <p>
+                Take beautiful photos and enjoy every moment of your trip.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section id="faq">
+
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <div class="faq-box">
+
+        <h3 onclick="toggleAnswer(this)">
+            Q1. How can I book a trip?
+        </h3>
+
+        <p class="faq-answer">
+            You can book your trip using our Booking Form.
+        </p>
+
+        <h3 onclick="toggleAnswer(this)">
+            Q2. Which destinations are available?
+        </h3>
+
+        <p class="faq-answer">
+            Currently, Araku Valley, Goa, Hyderabad, Macherla and Kerala are available.
+        </p>
+
+        <h3 onclick="toggleAnswer(this)">
+            Q3. How can I contact Explore India?
+        </h3>
+
+        <p class="faq-answer">
+            You can contact us using the Contact section.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+    <h2>🖼️ Travel Gallery</h2>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
+       alt="Araku Valley Waterfalls"
+            onclick="showImage(this)">
+
+       <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80"
+        alt="Goa Beach"
+            onclick="showImage(this)">
+
+       <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Charminar%2C%20Hyderabad.jpg" 
+       alt="Charminar Hyderabad"
+            onclick="showImage(this)">
+
+     <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80" 
+     alt="Macherla Waterfalls"
+    onclick="showImage(this)">
+
+        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80"
+            alt="Kerala Backwaters"
+            onclick="showImage(this)">
+
+    </div>
+
+</section>
+
+<!-- ================= BOOKING ================= -->
+
+<div class="booking" id="booking">
+
+    <h2>✈️ Book Your Trip</h2>
+
+    <form onsubmit="bookTrip(event)">
+
+        <input
+            type="text"
+            id="travelName"
+            placeholder="Enter your name"
+            required>
+
+        <br><br>
+
+        <select id="destination" required>
+
+            <option value="">
+                Select Destination
+            </option>
+
+            <option value="Araku Valley">
+                Araku Valley
+            </option>
+
+            <option value="Goa">
+                Goa
+            </option>
+
+            <option value="Hyderabad">
+                Hyderabad
+            </option>
+
+            <option value="Macherla">
+                Macherla
+            </option>
+
+            <option value="Kerala">
+                Kerala
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <input
+            type="date"
+            id="travelDate"
+            required>
+
+        <br><br>
+
+        <input
+            type="number"
+            id="people"
+            placeholder="Number of people"
+            min="1"
+            required>
+
+        <br><br>
+
+        <button type="submit">
+            Book Now ✈️
+        </button>
+
+    </form>
+
+</div>
+
+<!-- ================= CONTACT ================= -->
+
+<div class="contact" id="contact">
+
+    <h2>📞 Contact Us</h2>
+
+    <form onsubmit="sendMessage(event)">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required>
+
+        <br><br>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required>
+
+        <br><br>
+
+        <textarea
+            id="message"
+            placeholder="Enter your message"
+            required></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Send Message
+        </button>
+
+    </form>
+
+</div>
+
+<!-- ================= STATISTICS ================= -->
+
+<section id="stats">
+
+    <h2>📊 Our Travel Statistics</h2>
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <h3>🌄 5+</h3>
+            <p>Destinations</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>📸 10+</h3>
+            <p>Photos</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>❤️ 100+</h3>
+            <p>Happy Travelers</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h2>🌏 About Explore India</h2>
+
+    <div class="about-box">
+
+        <p>
+            Explore India is a simple travel website that helps
+            users discover beautiful destinations in India and
+            popular holiday destinations.
+        </p>
+
+        <p>
+            Explore amazing places, check travel information,
+            save your favorite destinations and plan your next
+            journey with us! ✈️❤️
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= POPUP ================= -->
+
+<div id="popup" class="popup">
+
+    <div class="popup-content">
+
+        <span class="close" onclick="closePopup()">
+            &times;
+        </span>
+
+        <h2 id="popupTitle"></h2>
+
+        <p id="popupText"></p>
+
+    </div>
+
+</div>
+
+<!-- ================= TOP BUTTON ================= -->
+
+<button id="topBtn" onclick="goToTop()" style="display:none;">
+    ⬆️
+</button>
+
+<!-- ================= FOOTER ================= -->
+
+<footer style="
+    background-color:darkblue;
+    color:white;
+    padding:20px;
+">
+
+    <h3>🌏 Explore India</h3>
+
+    <p>
+        Discover beautiful places and enjoy your journey!
+    </p>
+
+    <p>
+        📧 exploreindia@gmail.com
+    </p>
+
+    <p>
+        © 2026 Explore India | All Rights Reserved
+    </p>
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* Explore Button */
+
+    function explore(place) {
+
+        let details = "";
+
+        if (place === "Araku Valley") {
+
+            details =
+                "🏔️ Araku Valley\n\n" +
+                "🌿 Beautiful green valleys\n" +
+                "💧 Amazing waterfalls\n" +
+                "☕ Famous coffee plantations\n" +
+                "🌄 Peaceful hill views";
+
+        }
+
+        else if (place === "Goa") {
+
+            details =
+                "🏖️ Goa\n\n" +
+                "🌊 Beautiful beaches\n" +
+                "🌅 Amazing sunsets\n" +
+                "🎉 Fun activities\n" +
+                "🍴 Delicious food";
+
+        }
+
+        else if (place === "Hyderabad") {
+
+            details =
+                "🏰 Hyderabad\n\n" +
+                "🏛️ Historic Charminar\n" +
+                "🍛 Famous biryani\n" +
+                "🕌 Beautiful historical places\n" +
+                "🛍️ Shopping and markets";
+
+        }
+
+        else if (place === "Macherla") {
+
+            details =
+                "🌿 Macherla\n\n" +
+                "🌳 Beautiful nature\n" +
+                "🏞️ Peaceful surroundings\n" +
+                "📍 Famous local places";
+
+        }
+
+        else if (place === "Kerala") {
+
+            details =
+                "🌴 Kerala\n\n" +
+                "🌊 Crystal-clear water\n" +
+                "🏖️ Beautiful beaches\n" +
+                "🌅 Amazing sunsets\n" +
+                "🐠 Beautiful marine life";
+
+        }
+
+        alert(details);
+    }
+
+
+    /* Plan Your Trip */
+
+    function startJourney() {
+
+        alert("Let's start your journey! ✈️🌍");
+
+        document.getElementById("booking").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* Contact Form */
+
+    function sendMessage(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+
+        alert(
+            "Thank you " +
+            name +
+            "! Your message has been sent. ❤️"
+        );
+
+    }
+
+
+    /* Booking Form */
+
+    function bookTrip(event) {
+
+        event.preventDefault();
+
+        let name =
+            document.getElementById("travelName").value;
+
+        let destination =
+            document.getElementById("destination").value;
+
+        let date =
+            document.getElementById("travelDate").value;
+
+        let people =
+            document.getElementById("people").value;
+
+        alert(
+            "🎉 Trip Booked Successfully!\n\n" +
+            "👤 Name: " + name + "\n" +
+            "📍 Destination: " + destination + "\n" +
+            "📅 Date: " + date + "\n" +
+            "👥 People: " + people + "\n\n" +
+            "✨ Have a wonderful journey! ✈️"
+        );
+
+    }
+
+
+    /* Search Destination */
+
+    function searchDestination() {
+
+        let searchText =
+            document.getElementById("searchDestination")
+            .value
+            .toLowerCase()
+            .trim();
+
+        let cards =
+            document.querySelectorAll(".destination-card");
+
+        let found = false;
+
+        cards.forEach(function(card) {
+
+            let destination =
+                card.querySelector("h3")
+                .innerText
+                .toLowerCase();
+
+            if (destination.includes(searchText)) {
+
+                card.style.display = "flex";
+                found = true;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+        let noResult =
+            document.getElementById("noResult");
+
+        if (searchText === "") {
+
+            cards.forEach(function(card) {
+                card.style.display = "flex";
+            });
+
+            noResult.style.display = "none";
+
+            return;
+        }
+
+        if (!found) {
+
+            noResult.style.display = "block";
+
+        } else {
+
+            noResult.style.display = "none";
+
+        }
+
+    }
+function filterDestinations(category) {
+    let cards = document.querySelectorAll(".destination-card");
+    document.getElementById("searchDestination").value = "";
+    document.getElementById("noResult").style.display = "none";
+
+    cards.forEach(function(card) {
+        let title = card.querySelector("h3").innerText;
+
+        if (category === "all") {
+            card.style.display = "flex";
+        }
+        else if (category === "hills" && title.includes("Araku Valley")) {
+            card.style.display = "flex";
+        }
+        else if (category === "beaches" &&
+                 title.includes("Goa")) {
+            card.style.display = "flex";
+        }
+        else if (category === "historical" && title.includes("Hyderabad")) {
+            card.style.display = "flex";
+        }
+        else if (category === "nature" && (title.includes("Macherla") || title.includes("Kerala"))) {
+            card.style.display = "flex";
+        }
+        else {
+            card.style.display = "none";
+        }
+    });
+}
+
+    /* Dark Mode */
+
+    function darkMode() {
+
+        document.body.classList.toggle("dark-mode");
+
+        let button =
+            document.getElementById("darkModeBtn");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            button.innerHTML = "☀️ Light Mode";
+
+        } else {
+
+            button.innerHTML = "🌙 Dark Mode";
+
+        }
+
+    }
+
+
+    /* Gallery Image */
+
+    function showImage(image) {
+
+        window.open(image.src, "_blank");
+
+    }
+
+
+    /* Favorites */
+
+    function addFavorite(place) {
+
+        let favorites =
+            JSON.parse(localStorage.getItem("favorites")) || [];
+
+        if (!favorites.includes(place)) {
+
+            favorites.push(place);
+
+            localStorage.setItem(
+                "favorites",
+                JSON.stringify(favorites)
+            );
+
+            alert(
+                "❤️ " +
+                place +
+                " added to your favorites!"
+            );
+
+        } else {
+
+            alert(
+                "⭐ " +
+                place +
+                " is already in your favorites!"
+            );
+
+        }
+
+        displayFavorites();
+
+    }
+
+
+    function displayFavorites() {
+
+        let favorites =
+            JSON.parse(localStorage.getItem("favorites")) || [];
+
+        let list =
+            document.getElementById("favoriteList");
+
+        if (favorites.length === 0) {
+
+            list.innerHTML =
+                "<p>No favorites added yet.</p>";
+
+            return;
+        }
+
+        list.innerHTML = "";
+
+        favorites.forEach(function(place) {
+
+            let item =
+                document.createElement("p");
+
+            item.innerHTML =
+                "❤️ " + place +
+                " " +
+                "<button onclick=\"goToDestination('" +
+                place +
+                "')\">📍 View</button>" +
+                " " +
+                "<button onclick=\"removeFavorite('" +
+                place +
+                "')\">❌ Remove</button>";
+
+            list.appendChild(item);
+
+        });
+
+    }
+
+
+    function removeFavorite(place) {
+
+        let favorites =
+            JSON.parse(localStorage.getItem("favorites")) || [];
+
+        favorites =
+            favorites.filter(function(item) {
+                return item !== place;
+            });
+
+        localStorage.setItem(
+            "favorites",
+            JSON.stringify(favorites)
+        );
+
+        displayFavorites();
+
+    }
+
+
+    /* Rating */
+
+    function ratePlace(place, rating, clickedStar) {
+
+        localStorage.setItem(
+            "rating_" + place,
+            rating
+        );
+
+        alert(
+            "⭐ You rated " +
+            place +
+            " " +
+            rating +
+            "/5"
+        );
+
+        let stars =
+            clickedStar.parentElement
+            .querySelectorAll("span");
+
+        stars.forEach(function(star, index) {
+
+            if (index < rating) {
+
+                star.style.opacity = "1";
+                star.style.transform = "scale(1.2)";
+
+            } else {
+
+                star.style.opacity = "0.4";
+                star.style.transform = "scale(1)";
+
+            }
+
+        });
+
+    }
+
+
+    /* View Favorite Destination */
+
+    function goToDestination(place) {
+
+        let cards =
+            document.querySelectorAll(".destination-card");
+
+        cards.forEach(function(card) {
+
+            let title =
+                card.querySelector("h3").innerText;
+
+            if (title.includes(place)) {
+
+                card.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                card.style.transform =
+                    "scale(1.08)";
+
+                setTimeout(function() {
+
+                    card.style.transform = "";
+
+                }, 1500);
+
+            }
+
+        });
+
+    }
+
+
+    /* Weather */
+
+    function showWeather(place) {
+
+        let weatherPlace =
+            document.getElementById("weatherPlace");
+
+        let weatherText =
+            document.getElementById("weatherText");
+
+        if (place === "Araku Valley") {
+
+            weatherPlace.innerText =
+                "🌄 Araku Valley";
+
+            weatherText.innerText =
+                "🌤️ Pleasant and cool weather";
+
+        }
+
+        else if (place === "Goa") {
+
+            weatherPlace.innerText =
+                "🏖️ Goa";
+
+            weatherText.innerText =
+                "☀️ Warm and sunny weather";
+
+        }
+
+        else if (place === "Hyderabad") {
+
+            weatherPlace.innerText =
+                "🏰 Hyderabad";
+
+            weatherText.innerText =
+                "🌤️ Warm weather";
+
+        }
+
+        else if (place === "Kerala") {
+
+            weatherPlace.innerText =
+                "🌴 Kerala";
+
+            weatherText.innerText =
+                "🌤️ Warm and humid tropical weather";
+
+        }
+
+    }
+
+
+    /* FAQ */
+
+    function toggleAnswer(question) {
+
+        let answer =
+            question.nextElementSibling;
+
+        if (answer.style.display === "none") {
+
+            answer.style.display = "block";
+
+        } else {
+
+            answer.style.display = "none";
+
+        }
+
+    }
+
+
+    /* Destination Details */
+
+    function showDetails(place) {
+
+        let title = "";
+        let text = "";
+
+        if (place === "Araku Valley") {
+
+            title = "🌄 Araku Valley";
+
+            text =
+                "📍 Location: Andhra Pradesh\n" +
+                "☕ Famous for: Coffee plantations\n" +
+                "🌿 Speciality: Beautiful hills and nature";
+
+        }
+
+        else if (place === "Goa") {
+
+            title = "🏖️ Goa";
+
+            text =
+                "📍 Location: Goa, India\n" +
+                "🌊 Famous for: Beautiful beaches\n" +
+                "🌅 Speciality: Amazing sunsets and activities";
+
+        }
+
+        else if (place === "Hyderabad") {
+
+            title = "🏰 Hyderabad";
+
+            text =
+                "📍 Location: Telangana\n" +
+                "🏛️ Famous for: Charminar and Golconda Fort\n" +
+                "🍛 Speciality: Famous Hyderabadi Biryani";
+
+        }
+
+        else if (place === "Macherla") {
+
+            title = "🌿 Macherla";
+
+            text =
+                "📍 Location: Andhra Pradesh\n" +
+                "🌳 Famous for: Nature and peaceful surroundings\n" +
+                "🏞️ Speciality: Beautiful local places";
+
+        }
+
+        else if (place === "Kerala") {
+
+            title = "🌴 Kerala";
+
+            text =
+                "📍 Location: Kerala, India\n" +
+                "🌊 Famous for: Backwaters and beaches\n" +
+                "🌿 Speciality: Green landscapes and houseboats";
+
+        }
+
+        document.getElementById("popupTitle").innerText =
+            title;
+
+        document.getElementById("popupText").innerText =
+            text;
+
+        document.getElementById("popup").style.display =
+            "block";
+
+    }
+
+
+    /* Close Popup */
+
+    function closePopup() {
+
+        document.getElementById("popup").style.display =
+            "none";
+
+    }
+
+
+    /* Top Button */
+
+    window.addEventListener("scroll", function() {
+
+        let topBtn =
+            document.getElementById("topBtn");
+
+        if (window.scrollY > 300) {
+
+            topBtn.style.display = "block";
+
+        } else {
+
+            topBtn.style.display = "none";
+
+        }
+
+    });
+
+
+    function goToTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* Minimum Travel Date */
+
+    document.getElementById("travelDate").min =
+        new Date().toISOString().split("T")[0];
+
+
+    /* Load Favorites When Page Opens */
+
+    displayFavorites();
+function shareWebsite() {
+    if (navigator.share) {
+        navigator.share({
+            title: "Explore India",
+            text: "Explore beautiful places and unforgettable journeys with Explore India!",
+            url: window.location.href
+        });
+    } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert("🔗 Website link copied! You can share it now.");
+    }
+}
+</script>
+
+</body>
+</html>
